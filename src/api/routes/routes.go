@@ -2,19 +2,19 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/rubenbuelvas/Garage-BE/src/api/controller"
+	"github.com/rubenbuelvas/garage-be/src/api/controller"
 )
 
 func SetupRoutes(router *gin.Engine) {
-	router.GET("/ping", controller.Ping)
+	router.GET("/ping", controller.Ping())
 
 	// Product routes
-	productGroup := router.Group("/products")
+	/*productGroup := router.Group("/products")
 	{
 		// CRUD operations
 		productGroup.POST("/", controller.CreateProduct)
 		productGroup.GET("/", controller.GetProducts)
-		productGroup.GET("/:id", controller.GetProduct)
+		productGroup.GET("/:id", controller.GetProductByID)
 		productGroup.PUT("/:id", controller.UpdateProduct)
 		productGroup.DELETE("/:id", controller.DeleteProduct)
 
@@ -22,7 +22,7 @@ func SetupRoutes(router *gin.Engine) {
 		productGroup.POST("/:id/buy", controller.BuyProduct)
 
 		// Search
-		productGroup.GET("/search", controller.SearchProducts)
+		productGroup.GET("/search", controller.SearchProductsByQuery)
 	}
 
 	// User routes
@@ -30,8 +30,8 @@ func SetupRoutes(router *gin.Engine) {
 	{
 		userGroup.POST("/", controller.CreateUser)
 		userGroup.GET("/", controller.GetUsers)
-		userGroup.GET("/:id", controller.GetUser)
+		userGroup.GET("/:id", controller.GetUserByID)
 		userGroup.PUT("/:id", controller.UpdateUser)
 		userGroup.DELETE("/:id", controller.DeleteUser)
-	}
+	}*/
 }
