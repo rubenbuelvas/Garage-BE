@@ -1,0 +1,37 @@
+package routes
+
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/rubenbuelvas/User-BE/src/api/controller"
+)
+
+func SetupRoutes(router *gin.Engine) {
+	router.GET("/ping", controller.Ping)
+
+	// Product routes
+	productGroup := router.Group("/products")
+	{
+		// CRUD operations
+		productGroup.POST("/", controller.CreateProduct)
+		productGroup.GET("/", controller.GetProducts)
+		productGroup.GET("/:id", controller.GetProduct)
+		productGroup.PUT("/:id", controller.UpdateProduct)
+		productGroup.DELETE("/:id", controller.DeleteProduct)
+
+		// Buy
+		productGroup.POST("/:id/buy", controller.BuyProduct)
+
+		// Search
+		productGroup.GET("/search", controller.SearchProducts)
+	}
+
+	// User routes
+	userGroup := router.Group("/admin")
+	{
+		userGroup.POST("/", controller.CreateUser)
+		userGroup.GET("/", controller.GetUsers)
+		userGroup.GET("/:id", controller.GetUser)
+		userGroup.PUT("/:id", controller.UpdateUser)
+		userGroup.DELETE("/:id", controller.DeleteUser)
+	}
+}
