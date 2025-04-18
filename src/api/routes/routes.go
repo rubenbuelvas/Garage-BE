@@ -9,7 +9,7 @@ func SetupRoutes(router *gin.Engine) {
 	router.GET("/ping", controller.Ping())
 
 	// Product routes
-	/*productGroup := router.Group("/products")
+	productGroup := router.Group("/products")
 	{
 		// CRUD operations
 		productGroup.POST("/", controller.CreateProduct)
@@ -33,5 +33,5 @@ func SetupRoutes(router *gin.Engine) {
 		userGroup.GET("/:id", controller.GetUserByID)
 		userGroup.PUT("/:id", controller.UpdateUser)
 		userGroup.DELETE("/:id", controller.DeleteUser)
-	}*/
+	}
 }
